@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-import { DEFAULT_USER_ICON } from "constants/DEFAULT_USER_ICON";
+import { DEFAULT_USER_ICON } from "../constants/DEFAULT_USER_ICON";
 
 const userSchema = new mongoose.Schema({
   email: { type: String, required: true, unique: true },

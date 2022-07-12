@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 import { EDoctorType } from "../types/doctor";
-import { DEFAULT_USER_ICON } from "constants/DEFAULT_USER_ICON";
+import { DEFAULT_USER_ICON } from "../constants/DEFAULT_USER_ICON";
 
 const doctorSchema = new mongoose.Schema({
   email: { type: String, required: true, unique: true },

@@ -1,9 +1,11 @@
 import { Router } from "express";
 
-import { getAppointments } from "./appointment";
+import { doctorRouter } from "./doctor/router";
+import { userRouter } from "./user/router";
 
 const router = Router();
 
-router.get("/appointments", getAppointments);
+router.use(doctorRouter);
+router.use(userRouter);
 
 export { router };

@@ -40,8 +40,7 @@ const logDeviation = async (
 };
 
 export const job = new cron.CronJob(
-  `*/10 * * * * *`,
-  //`*/${RESTART_MINUTES_TIME} * * * *`,
+  `*/${RESTART_MINUTES_TIME} * * * *`,
   async function () {
     await dbConnection();
 

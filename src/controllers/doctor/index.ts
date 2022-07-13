@@ -14,3 +14,15 @@ export const createDoctor = async (req: Request, res: Response) => {
     return errorHandler({ err_code: null, req, res });
   }
 };
+
+export const getDoctorById = async (req: Request, res: Response) => {
+  const { id } = req.params as { id: string };
+
+  try {
+    const doctor = await Doctor.findById(id).populate("appointments_accepted");
+    res.send({ doctor });
+  } catch (error) {
+    console.log(error);
+    return errorHandler({ err_code: null, req, res });
+  }
+};

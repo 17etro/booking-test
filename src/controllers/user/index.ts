@@ -14,3 +14,15 @@ export const createUser = async (req: Request, res: Response) => {
     return errorHandler({ err_code: null, req, res });
   }
 };
+
+export const getUserById = async (req: Request, res: Response) => {
+  const { id } = req.params as { id: string };
+
+  try {
+    const user = await User.findById(id).populate("appointments");
+    res.send({ user });
+  } catch (error) {
+    console.log(error);
+    return errorHandler({ err_code: null, req, res });
+  }
+};

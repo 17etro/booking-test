@@ -2,8 +2,19 @@ import mongoose from "mongoose";
 
 import { EDoctorType } from "../types/doctor";
 import { DEFAULT_USER_ICON } from "../constants/DEFAULT_USER_ICON";
+import { IAppointment } from "./Appointment";
 
-const doctorSchema = new mongoose.Schema({
+interface IDoctor {
+  email: string;
+  photo_avatar: string;
+  phone: string | null;
+  name: string;
+  spec: EDoctorType;
+  free: boolean;
+  appointments_accepted: IAppointment[];
+}
+
+const doctorSchema = new mongoose.Schema<IDoctor>({
   email: { type: String, required: true, unique: true },
   photo_avatar: {
     type: String,
@@ -24,4 +35,4 @@ const doctorSchema = new mongoose.Schema({
 
 const Doctor = mongoose.model("doctor", doctorSchema);
 
-export { Doctor };
+export { Doctor, IDoctor };
